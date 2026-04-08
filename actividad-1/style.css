@@ -1,58 +1,92 @@
-
-/* 1. Fondo de la página y tipo de letra */
 body {
-    background-color: #f4f4f4;
-    font-family: Arial, sans-serif; /* Usamos una fuente que ya tiene tu PC */
+    background-color: #f1f7f1;
+    font-family: 'HarryPotter', sans-serif; 
+    font-size: 30px;
     text-align: center;
     margin: 0;
+    min-height: 100vh;
+    background-image:url('fondo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    backdrop-filter: blur(10px);
 }
 
-/* 2. El título principal */
+@font-face {
+    font-family: 'HarryPotter';
+    src: url('./harry_p./HARRYP__.TTF') format('truetype');
+}
+
+h1 {
+    font-family: 'HarryPotter', cursive;
+    font-size: 48px;
+}
+
 header {
     padding: 30px;
-    background-color: white;
+    
+}
+.header_mundo{
+    background-image:url('fondo.png');
 }
 
-/* 3. La caja que contiene a las 4 tarjetas */
 main {
-    padding: 20px;
+    padding: 10px;
 }
 
-/* 4. Estilo general para todas las tarjetas */
+
 .tarjeta {
-    display: inline-block; /* Esto las pone una al lado de otra */
-    width: 250px;          /* Ancho de la tarjeta */
-    margin: 10px;          /* Espacio entre ellas */
-    padding: 30px;         /* Espacio dentro (colchón) */
-    border-radius: 15px;   /* Esquinas redondeadas */
-    color: white;          /* Color de letra blanca */
-    vertical-align: top;   /* Las alinea por la parte de arriba */
+    display: inline-block; 
+    width: 250px;       
+    margin: 10px;         
+    padding: 40px 30px;         
+    border-radius: 15px;   
+    color: white;         
+    vertical-align: top;
+    min-height: 400px;
 }
 
-/* 5. Colores específicos para cada casa */
+img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    border: 4px solid #40e0d0;
+}
+
+.nombre-casa {
+    font-weight: bold;
+    display: block;
+}
+
+.animal-casa{
+    font-weight: italic;
+    display:block ;
+}
 
 .gryffindor {
-    background-color: #740001; /* Rojo */
-    border-bottom: 8px solid #eeba30; /* Borde dorado abajo */
+    background-color: #740001; 
+    border-bottom: 8px solid #eeba30; 
 }
 
 .slytherin {
-    background-color: #1a472a; /* Verde */
-    border-bottom: 8px solid #aaaaaa; /* Borde plata abajo */
+    background-color: #1a472a; 
+    border-bottom: 8px solid #aaaaaa; 
 }
 
 .ravenclaw {
-    background-color: #0e1a40; /* Azul */
-    border-bottom: 8px solid #946b2d; /* Borde bronce abajo */
+    background-color: #0e1a40; 
+    border-bottom: 8px solid #946b2d; 
 }
 
 .hufflepuff {
-    background-color: #ecb939; /* Amarillo */
-    border-bottom: 8px solid #372e29; /* Borde negro abajo */
-    color: black; /* Letra negra porque el amarillo es claro */
+    background-color: #ecb939; 
+    border-bottom: 8px solid #372e29; 
+    color: black; 
 }
 
-/* 6. Estilo para los nombres de las casas */
+
 h2 {
     margin: 10px 0;
 }
