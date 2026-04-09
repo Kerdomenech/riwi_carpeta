@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harry Potter – HBO Series</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #060408;
+      min-height: 100vh;
+      display: flex;
+      overflow: hidden;
+    }
+
+    /* ══ SIDEBAR ══ */
+    .sidebar {
+      width: 72px;
+      min-height: 100vh;
+      background: rgba(10,4,20,0.95);
+      border-right: 1px solid rgba(200,180,255,0.12);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 0;
+      gap: 32px;
+      position: fixed;
+      left: 0; top: 0; bottom: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+
+    .sidebar-logo {
+      font-size: 1.8rem;
+      filter: drop-shadow(0 0 8px rgba(200,180,255,0.6));
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-6px); }
+    }
+
+    .sidebar-divider {
+      width: 30px;
+      height: 1px;
+      background: rgba(200,180,255,0.2);
+    }
+
+    .sidebar-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+
+    .sidebar-link {
+      width: 44px; height: 44px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      text-decoration: none;
+      font-size: 1.2rem;
+      color: rgba(200,180,255,0.5);
+      border: 1px solid transparent;
+      transition: all 0.3s;
+      position: relative;
+    }
+    .sidebar-link:hover, .sidebar-link.active {
+      color: #c9b8f0;
+      border-color: rgba(200,180,255,0.4);
+      background: rgba(200,180,255,0.08);
+      box-shadow: 0 0 15px rgba(180,140,255,0.2);
+    }
+    .sidebar-link .tooltip {
+      position: absolute;
+      left: 58px;
+      white-space: nowrap;
+      font-family: 'IM Fell English', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: #c9b8f0;
+      background: rgba(10,4,20,0.95);
+      padding: 6px 12px;
+      border: 1px solid rgba(200,180,255,0.2);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
+    .sidebar-link:hover .tooltip { opacity: 1; }
+
+    /* ══ MAIN CONTENT ══ */
+    .main {
+      margin-left: 72px;
+      flex: 1;
+      position: relative;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    /* ── BG LAYERS ── */
+    .bg-layer {
+      position: fixed;
+      left: 72px; top: 0; right: 0; bottom: 0;
+      z-index: 0;
+      background:
+        radial-gradient(ellipse 100% 60% at 50% 0%, rgba(130,60,255,0.15), transparent 60%),
+        radial-gradient(ellipse 60% 60% at 100% 100%, rgba(240,192,64,0.06), transparent 60%),
+        #060408;
+    }
+
+    /* Particle stars */
+    .particles { position: fixed; left:72px; top:0; right:0; bottom:0; z-index:0; pointer-events:none; }
+    .p { position:absolute; border-radius:50%; animation: twinkle var(--d) ease-in-out infinite; opacity:0; }
+    @keyframes twinkle { 0%,100%{opacity:0}50%{opacity:var(--o)} }
+
+    /* ── HERO SECTION ── */
+    .hero-section {
+      position: relative; z-index: 2;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 40px;
+    }
+
+    .hbo-badge {
+      display: inline-block;
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.4em;
+      color: #fff;
+      background: #000;
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 6px 18px;
+      margin-bottom: 32px;
+      text-transform: uppercase;
+      animation: fadeIn 0.8s ease both;
+    }
+
+    .coming-text {
+      font-family: 'HarryPotter', 'Palatino Linotype', serif;
+      font-size: clamp(2.5rem, 8vw, 7rem);
+      color: transparent;
+      background: linear-gradient(135deg, #fff 0%, #d4aaff 40%, #f0c040 80%, #fff 100%);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      line-height: 1.1;
+      animation: gradientShift 5s ease-in-out infinite, fadeInUp 1s ease 0.3s both;
+      text-shadow: none;
+      filter: drop-shadow(0 0 40px rgba(180,140,255,0.3));
+    }
+    @keyframes gradientShift {
+      0%,100% { background-position: 0% 50%; }
+      50%      { background-position: 100% 50%; }
+    }
+
+    .tagline {
+      font-family: 'IM Fell English', serif;
+      font-style: italic;
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+      color: rgba(200,180,255,0.7);
+      letter-spacing: 0.1em;
+      margin-top: 20px;
+      animation: fadeInUp 1s ease 0.5s both;
+    }
+
+    /* ── MAGIC LINE ── */
+    .magic-line {
+      width: 1px;
+      height: 60px;
+      background: linear-gradient(to bottom, rgba(200,180,255,0.6), transparent);
+      margin: 40px auto;
+      animation: fadeInUp 1s ease 0.7s both;
+    }
+
+    /* ── INFO CARDS ── */
+    .info-grid {
+      position: relative; z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1px;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 40px 80px;
+      background: rgba(200,180,255,0.06);
+      border: 1px solid rgba(200,180,255,0.08);
+    }
+
+    .info-card {
+      background: rgba(6,4,8,0.9);
+      padding: 36px 28px;
+      text-align: center;
+      border: 1px solid rgba(200,180,255,0.06);
+      transition: background 0.3s;
+      animation: fadeInUp 0.7s ease both;
+    }
+    .info-card:nth-child(1) { animation-delay: 0.2s; }
+    .info-card:nth-child(2) { animation-delay: 0.35s; }
+    .info-card:nth-child(3) { animation-delay: 0.5s; }
+    .info-card:hover { background: rgba(200,180,255,0.04); }
+
+    .info-icon { font-size: 2rem; margin-bottom: 16px; display: block; }
+    .info-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      color: rgba(200,180,255,0.4);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .info-value {
+      font-family: 'IM Fell English', serif;
+      font-size: 1.1rem;
+      color: #e8e0f8;
+      line-height: 1.5;
+    }
+
+    /* ── DESCRIPTION ── */
+    .desc-section {
+      position: relative; z-index: 2;
+      max-width: 700px;
+      margin: 60px auto 80px;
+      padding: 0 40px;
+      text-align: center;
+    }
+    .desc-section p {
+      font-family: 'IM Fell English', serif;
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: rgba(220,210,240,0.7);
+      font-style: italic;
+    }
+    .desc-section .quote-mark {
+      font-size: 4rem;
+      color: rgba(200,180,255,0.15);
+      line-height: 0;
+      vertical-align: -1.2rem;
+    }
+
+    /* ── FOOTER ── */
+    .page-footer {
+      position: relative; z-index: 2;
+      text-align: center;
+      padding: 24px 40px 40px;
+      border-top: 1px solid rgba(200,180,255,0.08);
+      color: rgba(200,180,255,0.25);
+      font-family: 'IM Fell English', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+    @keyframes fadeInUp {
+      from { opacity:0; transform:translateY(24px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ SIDEBAR ══ -->
+  <nav class="sidebar">
+    <div class="sidebar-logo">⚡</div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-nav">
+      <a href="cover.html" class="sidebar-link">
+        🏰
+        <span class="tooltip">Cover</span>
+      </a>
+      <a href="next.html" class="sidebar-link">
+        🪄
+        <span class="tooltip">Las Casas</span>
+      </a>
+      <a href="new.html" class="sidebar-link active">
+        ✨
+        <span class="tooltip">New Series</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ══ CONTENT ══ -->
+  <div class="main">
+    <div class="bg-layer"></div>
+    <div class="particles" id="particles"></div>
+
+    <!-- HERO -->
+    <section class="hero-section">
+      <div class="hbo-badge">HBO Original Series</div>
+      <h1 class="coming-text">THE MAGICAL<br>WORLD IS<br>COMING</h1>
+      <p class="tagline">Harry Potter regresa a la pantalla como nunca antes</p>
+      <div class="magic-line"></div>
+    </section>
+
+    <!-- INFO CARDS -->
+    <div class="info-grid">
+      <div class="info-card">
+        <span class="info-icon">📺</span>
+        <div class="info-label">Plataforma</div>
+        <div class="info-value">HBO & Max</div>
+      </div>
+      <div class="info-card">
+        <span class="info-icon">📖</span>
+        <div class="info-label">Basada en</div>
+        <div class="info-value">Los 7 libros de J.K. Rowling</div>
+      </div>
+      <div class="info-card">
+        <span class="info-icon">🎬</span>
+        <div class="info-label">Formato</div>
+        <div class="info-value">Serie de temporadas — un libro por temporada</div>
+      </div>
+    </div>
+
+    <!-- DESCRIPTION -->
+    <div class="desc-section">
+      <p>
+        <span class="quote-mark">"</span>
+        La nueva serie de HBO promete una adaptación fiel y profunda del universo creado por J.K. Rowling. Con una narrativa expandida y nuevos talentos, el mundo mágico de Hogwarts volverá a cobrar vida con una visión fresca, íntima y más detallada que nunca.
+        <span class="quote-mark">"</span>
+      </p>
+    </div>
+
+    <footer class="page-footer">
+      Harry Potter © J.K. Rowling &nbsp;·&nbsp; Serie HBO Max · Kerlys Bello Domenech © 2026
+    </footer>
+  </div>
+
+  <script>
+    // Particles
+    const container = document.getElementById('particles');
+    for (let i = 0; i < 80; i++) {
+      const p = document.createElement('div');
+      p.className = 'p';
+      const size = 1 + Math.random() * 2;
+      p.style.cssText = `
+        left:${Math.random()*100}%;
+        top:${Math.random()*100}%;
+        width:${size}px; height:${size}px;
+        background:#fff;
+        --d:${2+Math.random()*5}s;
+        --o:${0.3+Math.random()*0.6};
+        animation-delay:${Math.random()*6}s;
+      `;
+      container.appendChild(p);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hogwarts – Las Cuatro Casas</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      background: #0a0812;
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'IM Fell English', Georgia, serif;
+      overflow-x: hidden;
+    }
+
+    /* ── BG ── */
+    .bg {
+      position: fixed; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(240,192,64,0.08), transparent),
+        radial-gradient(ellipse 60% 60% at 0% 100%, rgba(116,0,1,0.12), transparent),
+        #0a0812;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: relative; z-index: 2;
+      text-align: center;
+      padding: 56px 20px 32px;
+      border-bottom: 1px solid rgba(240,192,64,0.15);
+    }
+
+    .back-btn {
+      position: fixed;
+      top: 24px; left: 24px;
+      z-index: 10;
+      font-family: 'IM Fell English', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #c9b8f0;
+      text-decoration: none;
+      border: 1px solid rgba(200,180,255,0.3);
+      padding: 10px 20px;
+      background: rgba(10,8,18,0.7);
+      backdrop-filter: blur(8px);
+      transition: all 0.3s;
+    }
+    .back-btn:hover {
+      color: #fff;
+      border-color: rgba(200,180,255,0.8);
+      box-shadow: 0 0 20px rgba(180,140,255,0.3);
+    }
+
+    .new-btn {
+      position: fixed;
+      top: 24px; right: 24px;
+      z-index: 10;
+      font-family: 'IM Fell English', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #c9b8f0;
+      text-decoration: none;
+      border: 1px solid rgba(200,180,255,0.3);
+      padding: 10px 20px;
+      background: rgba(10,8,18,0.7);
+      backdrop-filter: blur(8px);
+      transition: all 0.3s;
+    }
+    .new-btn:hover {
+      color: #fff;
+      border-color: rgba(200,180,255,0.8);
+      box-shadow: 0 0 20px rgba(180,140,255,0.3);
+    }
+
+    h1 {
+      font-family: 'HarryPotter', 'Palatino Linotype', serif;
+      font-size: clamp(2.2rem, 6vw, 4.5rem);
+      color: #f0c040;
+      text-shadow: 0 0 30px rgba(240,192,64,0.5), 2px 2px 0 #4a2000;
+      margin: 0 0 10px;
+      animation: fadeInDown 0.8s ease both;
+    }
+    .subtitulo {
+      font-style: italic;
+      color: #c9b8f0;
+      font-size: clamp(1rem, 2vw, 1.3rem);
+      letter-spacing: 0.2em;
+      opacity: 0.8;
+      animation: fadeInDown 0.8s ease 0.2s both;
+    }
+
+    /* ── GRID ── */
+    .contenedor-casas {
+      position: relative; z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 50px 28px 80px;
+    }
+
+    /* ── TARJETA ── */
+    .tarjeta {
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 0 32px;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: transform 0.4s cubic-bezier(0.23,1,0.32,1), box-shadow 0.4s;
+      animation: fadeInUp 0.7s ease both;
+      cursor: default;
+    }
+    .tarjeta:nth-child(1) { animation-delay: 0.1s; }
+    .tarjeta:nth-child(2) { animation-delay: 0.25s; }
+    .tarjeta:nth-child(3) { animation-delay: 0.4s; }
+    .tarjeta:nth-child(4) { animation-delay: 0.55s; }
+
+    .tarjeta:hover { transform: translateY(-8px) scale(1.02); }
+
+    /* ── IMAGEN ── */
+    .tarjeta-img-wrap {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+    .tarjeta-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 0;
+      border: none;
+      box-shadow: none;
+      transition: transform 0.5s ease;
+      filter: brightness(0.85) contrast(1.1);
+    }
+    .tarjeta:hover .tarjeta-img-wrap img { transform: scale(1.08); }
+
+    .tarjeta-img-wrap::after {
+      content:'';
+      position:absolute; bottom:0; left:0; right:0;
+      height: 60%;
+      background: linear-gradient(to top, var(--casa-bg), transparent);
+    }
+
+    /* Casa crest overlay */
+    .crest {
+      position: absolute;
+      bottom: -20px; left: 50%;
+      transform: translateX(-50%);
+      font-size: 2.8rem;
+      z-index: 2;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
+    }
+
+    /* ── TEXTO ── */
+    .tarjeta-body {
+      padding: 36px 24px 0;
+      text-align: center;
+      flex: 1;
+    }
+    .nombre-casa {
+      display: block;
+      font-family: 'Cinzel', serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      color: var(--casa-accent);
+      text-shadow: 0 0 20px var(--casa-accent);
+      margin-bottom: 4px;
+    }
+    .animal-casa {
+      display: block;
+      font-style: italic;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.15em;
+      margin-bottom: 16px;
+    }
+    .descripcion {
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.75);
+    }
+
+    /* ── POR CASA ── */
+    .gryffindor {
+      --casa-bg: #740001;
+      --casa-accent: #eeba30;
+      background: linear-gradient(160deg, #8b0000 0%, #4a0000 100%);
+      box-shadow: 0 8px 40px rgba(116,0,1,0.4);
+    }
+    .gryffindor:hover { box-shadow: 0 20px 60px rgba(116,0,1,0.7), 0 0 30px rgba(238,186,48,0.2); }
+
+    .slytherin {
+      --casa-bg: #1a472a;
+      --casa-accent: #aaaaaa;
+      background: linear-gradient(160deg, #1a472a 0%, #0a2010 100%);
+      box-shadow: 0 8px 40px rgba(26,71,42,0.4);
+    }
+    .slytherin:hover { box-shadow: 0 20px 60px rgba(26,71,42,0.7), 0 0 30px rgba(170,170,170,0.2); }
+
+    .ravenclaw {
+      --casa-bg: #0e1a40;
+      --casa-accent: #6fa8dc;
+      background: linear-gradient(160deg, #0e1a40 0%, #060d20 100%);
+      box-shadow: 0 8px 40px rgba(14,26,64,0.5);
+    }
+    .ravenclaw:hover { box-shadow: 0 20px 60px rgba(14,26,64,0.8), 0 0 30px rgba(111,168,220,0.2); }
+
+    .hufflepuff {
+      --casa-bg: #c4972a;
+      --casa-accent: #372e29;
+      background: linear-gradient(160deg, #e8a820 0%, #a07010 100%);
+      box-shadow: 0 8px 40px rgba(200,150,40,0.3);
+      color: #1a1208;
+    }
+    .hufflepuff .animal-casa,
+    .hufflepuff .descripcion { color: rgba(30,18,4,0.75); }
+    .hufflepuff:hover { box-shadow: 0 20px 60px rgba(200,150,40,0.6); }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative; z-index: 2;
+      text-align: center;
+      padding: 24px 20px 40px;
+      border-top: 1px solid rgba(240,192,64,0.1);
+      color: rgba(255,255,255,0.3);
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      font-style: italic;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeInDown {
+      from { opacity:0; transform: translateY(-20px); }
+      to   { opacity:1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity:0; transform: translateY(30px); }
+      to   { opacity:1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg"></div>
+
+  <a href="cover.html" class="back-btn">← Volver</a>
+  <a href="new.html" class="new-btn">✦ New Series</a>
+
+  <header>
+    <h1>Colegio Hogwarts</h1>
+    <p class="subtitulo">Las Cuatro Casas de Magia y Hechicería</p>
+  </header>
+
+  <main class="contenedor-casas">
+
+    <!-- GRYFFINDOR -->
+    <article class="tarjeta gryffindor">
+      <div class="tarjeta-img-wrap">
+        <img src="https://wallpapers.com/images/featured/harry-potter-gryffindor-sf79op3es7lwzz70.jpg" alt="Gryffindor" />
+        <span class="crest">🦁</span>
+      </div>
+      <div class="tarjeta-body">
+        <span class="nombre-casa">Gryffindor</span>
+        <span class="animal-casa">León · Escarlata & Oro</span>
+        <p class="descripcion">Valor, coraje y determinación. El hogar de los más valientes, donde los atrevidos encuentran su lugar bajo la tutela del Sombrero Seleccionador.</p>
+      </div>
+    </article>
+
+    <!-- SLYTHERIN -->
+    <article class="tarjeta slytherin">
+      <div class="tarjeta-img-wrap">
+        <img src="https://w7.pngwing.com/pngs/546/868/png-transparent-harry-potter-slytherin-symbol-slytherin-house-hogwarts-harry-potter-gryffindor-ravenclaw-house-harry-potter-emblem-logo-color-thumbnail.png" alt="Slytherin" />
+        <span class="crest">🐍</span>
+      </div>
+      <div class="tarjeta-body">
+        <span class="nombre-casa">Slytherin</span>
+        <span class="animal-casa">Serpiente · Verde & Plata</span>
+        <p class="descripcion">Ambición, astucia y liderazgo. Aquellos con un gran destino encuentran en Slytherin la casa donde la determinación no tiene límites.</p>
+      </div>
+    </article>
+
+    <!-- RAVENCLAW -->
+    <article class="tarjeta ravenclaw">
+      <div class="tarjeta-img-wrap">
+        <img src="https://w0.peakpx.com/wallpaper/450/562/HD-wallpaper-ravenclaw-harry-potter.jpg" alt="Ravenclaw" />
+        <span class="crest">🦅</span>
+      </div>
+      <div class="tarjeta-body">
+        <span class="nombre-casa">Ravenclaw</span>
+        <span class="animal-casa">Águila · Azul & Bronce</span>
+        <p class="descripcion">Sabiduría, ingenio y creatividad. Ravenclaw acoge a las mentes más brillantes, aquellas que buscan el conocimiento más allá de los libros.</p>
+      </div>
+    </article>
+
+    <!-- HUFFLEPUFF -->
+    <article class="tarjeta hufflepuff">
+      <div class="tarjeta-img-wrap">
+        <img src="https://wallpapers.com/images/hd/harry-potter-houses-hufflepuff-cute-d5mii5q9yecc5zt1.jpg" alt="Hufflepuff" />
+        <span class="crest">🦡</span>
+      </div>
+      <div class="tarjeta-body">
+        <span class="nombre-casa">Hufflepuff</span>
+        <span class="animal-casa">Tejón · Amarillo & Negro</span>
+        <p class="descripcion">Lealtad, paciencia y trabajo duro. La casa más acogedora de Hogwarts, donde cada persona es valorada sin importar su origen.</p>
+      </div>
+    </article>
+
+  </main>
+
+  <footer>
+    <p>Travesura Realizada &nbsp;·&nbsp; Kerlys Bello Domenech © 2026</p>
+  </footer>
+
+</body>
+</html>
