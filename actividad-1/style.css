@@ -340,3 +340,8 @@ nav a:hover {
     line-height: 1.9;
     color: rgba(220, 210, 240, 0.65);
 }
+.title-text{
+    border: 1px solid yellow;
+    border-radius: 1rem;
+    padding: 0.5rem; 
+}
