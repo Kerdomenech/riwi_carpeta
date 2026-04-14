@@ -1,0 +1,288 @@
+/* ══════════════════════════════════
+   DINOSAURIOS — ESTILOS GENERALES
+   Aplica a las 3 páginas
+   ══════════════════════════════════ */
+
+/* ── BODY ── */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, serif;
+    background-color: #f5ede0;
+    color: #3b2a1a;
+}
+
+/* ── TÍTULOS ── */
+h1 {
+    font-size: 48px;
+    color: #5c3317;
+    margin: 0 0 10px;
+}
+
+h2 {
+    font-size: 26px;
+    color: #5c3317;
+}
+
+/* ── PÁRRAFOS ── */
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #5a3e2b;
+}
+
+/* ── LINKS ── */
+a {
+    text-decoration: none;
+}
+
+/* ── IMÁGENES ── */
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* ── FOOTER ── */
+.pie-pagina {
+    text-align: center;
+    padding: 24px;
+    margin-top: 40px;
+    background-color: #3b2a1a;
+    color: #f5ede0;
+    font-size: 14px;
+}
+
+
+/* ══════════════════════════════════
+   NAVEGACIÓN — compartida en las 3 páginas
+   Usa FLEX para poner los links en fila
+   ══════════════════════════════════ */
+
+.nav-principal {
+    /* FLEX: pone los links uno al lado del otro */
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    background-color: #3b2a1a;
+    padding: 16px 20px;
+}
+
+.nav-principal a {
+    color: #f5ede0;
+    font-size: 16px;
+    padding: 8px 20px;
+    border-radius: 6px;
+}
+
+.nav-principal a:hover {
+    background-color: #5c3317;
+}
+
+
+/* ══════════════════════════════════
+   index.html — PORTADA
+   ══════════════════════════════════ */
+
+/* Imagen de fondo que cubre toda la pantalla */
+.fondo-index {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Dinosauria_montage.jpg/640px-Dinosauria_montage.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(3px);
+    opacity: 0.35;
+    z-index: 0;
+}
+
+/* Contenido encima del fondo */
+.contenido-index {
+    position: relative;
+    z-index: 1;
+    min-height: 90vh;
+    text-align: center;
+
+    /* FLEX: centra el contenido vertical y horizontalmente */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+}
+
+.contenido-index h1 {
+    font-size: 90px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.contenido-index p {
+    font-size: 22px;
+    color: #3b2a1a;
+}
+
+/* Botones de la portada */
+.botones-index {
+    /* FLEX: pone los botones en fila */
+    display: flex;
+    gap: 16px;
+    margin-top: 30px;
+}
+
+.btn-principal {
+    display: inline-block;
+    padding: 14px 40px;
+    background-color: #5c3317;
+    color: #f5ede0;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    font-family: Georgia, serif;
+}
+
+.btn-principal:hover {
+    background-color: #3b2a1a;
+}
+
+.btn-secundario {
+    display: inline-block;
+    padding: 14px 40px;
+    border: 2px solid #5c3317;
+    color: #5c3317;
+    font-size: 18px;
+    border-radius: 8px;
+    font-family: Georgia, serif;
+}
+
+.btn-secundario:hover {
+    background-color: #e8d5c0;
+}
+
+
+/* ══════════════════════════════════
+   info.html — TARJETAS EN GRID
+   ══════════════════════════════════ */
+
+.header-pagina {
+    text-align: center;
+    padding: 40px 20px 20px;
+    background-color: #ecdcc8;
+    border-bottom: 3px solid #c4a882;
+}
+
+/* GRID: organiza las tarjetas en columnas automáticas */
+.grid-dinos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Tarjeta individual */
+.tarjeta-dino {
+    background-color: #fff8f0;
+    border: 1px solid #d4b896;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.tarjeta-dino img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.tarjeta-info {
+    padding: 16px;
+}
+
+.tarjeta-info h2 {
+    margin: 0 0 8px;
+    font-size: 22px;
+}
+
+/* Badge de tipo (carnívoro / herbívoro) */
+.tipo {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.carnivoro {
+    background-color: #f7d5d5;
+    color: #8b0000;
+}
+
+.herbivoro {
+    background-color: #d5f0d5;
+    color: #1a5c1a;
+}
+
+/* Curiosidad resaltada */
+.curiosidad {
+    background-color: #f0e6d6;
+    border-left: 4px solid #c4a882;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+
+/* ══════════════════════════════════
+   galeria.html — FOTOS EN FLEX
+   ══════════════════════════════════ */
+
+.seccion-galeria {
+    padding: 30px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.titulo-seccion {
+    font-size: 28px;
+    border-bottom: 3px solid #c4a882;
+    padding-bottom: 10px;
+    margin-bottom: 24px;
+}
+
+/* FLEX: pone las fotos en fila y las envuelve si no caben */
+.flex-galeria {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Cada foto */
+.foto-card {
+    width: 280px;
+    background-color: #fff8f0;
+    border: 1px solid #d4b896;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.foto-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.foto-card p {
+    padding: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #5c3317;
+    margin: 0;
+}
