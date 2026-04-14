@@ -1,7 +1,4 @@
-/* ══════════════════════════════════
-   DINOSAURIOS — ESTILOS GENERALES
-   Aplica a las 3 páginas
-   ══════════════════════════════════ */
+/* APLICACION DEL PROPIEDADES EN LAS 3 PAGINAS */
 
 /* ── BODY ── */
 body {
@@ -53,10 +50,9 @@ img {
 }
 
 
-/* ══════════════════════════════════
+/* 
    NAVEGACIÓN — compartida en las 3 páginas
-   Usa FLEX para poner los links en fila
-   ══════════════════════════════════ */
+   Usa FLEX para poner los links en fila */
 
 .nav-principal {
     /* FLEX: pone los links uno al lado del otro */
