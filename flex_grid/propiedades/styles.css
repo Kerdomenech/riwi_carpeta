@@ -1,0 +1,195 @@
+body {
+    font-family: 'Segoe UI';
+    background: #f4f7ff;
+    margin: 0;
+    color: #3a3a5a;
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 30px;
+    background: linear-gradient(135deg, #cdb4ff, #a2d2ff);
+    color: white;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 40px;
+    color: #6c63ff;
+}
+
+/* GRID CARDS */
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* CARD */
+.card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    color: #7b6cff;
+}
+
+/* DEMOS */
+.demo {
+    margin-top: 10px;
+    background: #eef3ff;
+    padding: 10px;
+    border-radius: 12px;
+    min-height: 100px;
+}
+
+.demo div {
+    background: linear-gradient(135deg, #cdb4ff, #a2d2ff);
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+/* FLEX */
+.flex {
+    display: flex;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.flow {
+    flex-flow: row wrap;
+}
+
+.justify {
+    justify-content: space-evenly;
+}
+
+.align {
+    align-items: center;
+    height: 120px;
+}
+
+.content {
+    align-content: space-between;
+    height: 150px;
+}
+
+.gap {
+    gap: 10px;
+}
+
+.o1 {
+    order: -1;
+}
+
+.o2 {
+    order: 2;
+}
+
+.grow {
+    flex-grow: 2;
+}
+
+.shrink div {
+    flex-shrink: 1;
+}
+
+.basis div {
+    flex-basis: 100px;
+}
+
+.flexfull {
+    flex: 2 1 100px;
+}
+
+.self {
+    align-self: flex-end;
+}
+
+.big {
+    font-size: 30px;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+}
+
+.basic {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.cols {
+    grid-template-columns: 100px 1fr 2fr;
+}
+
+.rows {
+    grid-template-rows: 50px 100px 50px;
+}
+
+.areas {
+    grid-template-areas:
+        "header header"
+        "main side";
+    grid-template-columns: 1fr 1fr;
+}
+
+.header {
+    grid-area: header;
+}
+
+.main {
+    grid-area: main;
+}
+
+.side {
+    grid-area: side;
+}
+
+.place-items {
+    place-items: center;
+}
+
+.content-center {
+    justify-content: center;
+    align-content: center;
+    height: 150px;
+}
+
+.auto-flow {
+    grid-auto-flow: column;
+}
+
+.span {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.bigspan {
+    grid-column: span 2;
+}
+
+.self-grid .center {
+    justify-self: center;
+    align-self: center;
+}

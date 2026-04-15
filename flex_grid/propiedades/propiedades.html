@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Guía Flexbox & Grid</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header>
+        <h1> Flexbox & Grid </h1>
+        <p>ejemplo de cada propiedad</p>
+    </header>
+
+    <main>
+
+        <!-- FLEXBOX -->
+        <section>
+            <h2>Flexbox</h2>
+
+            <div class="grid-cards">
+
+                <div class="card">
+                    <h3>display</h3>
+                    <p>Activa el modelo flex</p>
+                    <ul>
+                        <li>flex</li>
+                        <li>inline-flex</li>
+                    </ul>
+                    <div class="demo flex">
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>flex-direction</h3>
+                    <p>Dirección del eje principal</p>
+                    <ul>
+                        <li>row</li>
+                        <li>row-reverse</li>
+                        <li>column</li>
+                        <li>column-reverse</li>
+                    </ul>
+                    <div class="demo flex column">
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>flex-wrap</h3>
+                    <p>Permite salto de línea</p>
+                    <ul>
+                        <li>nowrap</li>
+                        <li>wrap</li>
+                        <li>wrap-reverse</li>
+                    </ul>
+                    <div class="demo flex wrap">
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>flex-flow</h3>
+                    <p>Shorthand de direction + wrap</p>
+                    <ul>
+                        <li>row wrap</li>
+                        <li>column nowrap</li>
+                    </ul>
+                    <div class="demo flex flow">
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>justify-content</h3>
+                    <p>Alineación horizontal</p>
+                    <ul>
+                        <li>flex-start</li>
+                        <li>flex-end</li>
+                        <li>center</li>
+                        <li>space-between</li>
+                        <li>space-around</li>
+                        <li>space-evenly</li>
+                    </ul>
+                    <div class="demo flex justify">
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>align-items</h3>
+                    <p>Alineación vertical</p>
+                    <ul>
+                        <li>stretch</li>
+                        <li>flex-start</li>
+                        <li>flex-end</li>
+                        <li>center</li>
+                        <li>baseline</li>
+                    </ul>
+                    <div class="demo flex align">
+                        <div class="big">1</div>
+                        <div>2</div>
+                        <div>3</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>align-content</h3>
+                    <p>Alinea múltiples líneas</p>
+                    <ul>
+                        <li>center</li>
+                        <li>space-between</li>
+                        <li>stretch</li>
+                    </ul>
+                    <div class="demo flex wrap content">
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                        <div>5</div>
+                        <div>6</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>gap</h3>
+                    <p>Espaciado entre elementos</p>
+                    <ul>
+                        <li>gap</li>
+                        <li>row-gap</li>
+                        <li>column-gap</li>
+                    </ul>
+                    <div class="demo flex gap">
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>order</h3>
+                    <p>Cambia orden visual</p>
+                    <div class="demo flex">
+                        <div class="o2">1</div>
+                        <div class="o1">2</div>
+                        <div>3</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>flex-grow</h3>
+                    <p>Expansión del item</p>
+                    <div class="demo flex">
+                        <div class="grow">1</div>
+                        <div>2</div>
+                        <div>3</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>flex-shrink</h3>
+                    <p>Reducción</p>
+                    <div class="demo flex shrink">
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>flex-basis</h3>
+                    <p>Tamaño base</p>
+                    <div class="demo flex basis">
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>flex</h3>
+                    <p>Shorthand grow + shrink + basis</p>
+                    <div class="demo flex">
+                        <div class="flexfull">1</div>
+                        <div>2</div>
+                        <div>3</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>align-self</h3>
+                    <p>Alineación individual</p>
+                    <div class="demo flex align">
+                        <div>1</div>
+                        <div class="self">2</div>
+                        <div>3</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- GRID -->
+        <section>
+            <h2>CSS Grid</h2>
+
+            <div class="grid-cards">
+
+                <div class="card">
+                    <h3>display</h3>
+                    <p>Activa grid</p>
+                    <div class="demo grid basic">
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>grid-template-columns</h3>
+                    <p>Define columnas</p>
+                    <div class="demo grid cols">
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>grid-template-rows</h3>
+                    <p>Define filas</p>
+                    <div class="demo grid rows">
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>grid-template-areas</h3>
+                    <p>Diseño por áreas</p>
+                    <div class="demo grid areas">
+                        <div class="header">H</div>
+                        <div class="main">M</div>
+                        <div class="side">S</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>gap</h3>
+                    <p>Espaciado</p>
+                    <div class="demo grid gap">
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>justify-items / align-items</h3>
+                    <p>Alineación interna</p>
+                    <div class="demo grid place-items">
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>justify-content / align-content</h3>
+                    <p>Alineación del contenedor</p>
+                    <div class="demo grid content-center">
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>grid-auto-flow</h3>
+                    <p>Flujo automático</p>
+                    <div class="demo grid auto-flow">
+                        <div>1</div>
+                        <div>2</div>
+                        <div>3</div>
+                        <div>4</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>grid-column / grid-row</h3>
+                    <p>Posición manual</p>
+                    <div class="demo grid span">
+                        <div class="bigspan">1</div>
+                        <div>2</div>
+                        <div>3</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>justify-self / align-self</h3>
+                    <p>Alineación individual</p>
+                    <div class="demo grid self-grid">
+                        <div>1</div>
+                        <div class="center">2</div>
+                        <div>3</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>
