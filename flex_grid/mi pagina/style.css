@@ -1,6 +1,10 @@
-body {
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+body {
     font-family: Georgia, serif;
     background-color: #f5ede0;
     color: #3b2a1a;
@@ -28,25 +32,59 @@ img {
     max-width: 100%;
 }
 
-.pie-pagina {
-    text-align: center;
-    padding: 20px;
-    background-color: #3b2a1a;
-    color: white;
-}
-
 .nav-principal {
     display: flex;
     justify-content: center;
     gap: 20px;
     background-color: #3b2a1a;
-    padding: 10px;
+    padding: 15px;
 }
 
 .nav-principal a {
     color: white;
+    font-weight: bold;
 }
 
+.body-portada {
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                url('img/fondo-index.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.contenido-index {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-container {
+    background-color: rgba(255, 248, 240, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+}
+
+.botones-index {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn-principal {
+    background-color: #5c3317;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.btn-secundario {
+    border: 2px solid #5c3317;
+    color: #5c3317;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
 
 .layout {
     display: grid;
@@ -64,8 +102,18 @@ img {
     display: block;
     margin: 10px 0;
     color: white;
+    padding: 8px;
+    border-radius: 4px;
 }
 
+.sidebar a:hover {
+    background-color: #5c3317;
+}
+
+.header-pagina {
+    text-align: center;
+    padding: 20px;
+}
 
 .grid-dinos {
     display: grid;
@@ -74,85 +122,97 @@ img {
     padding: 40px;
 }
 
-
 .tarjeta-dino {
     background-color: #fff8f0;
     border-radius: 12px;
     overflow: hidden;
     transition: transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .tarjeta-dino:hover {
     transform: scale(1.03);
 }
 
-
 .tarjeta-dino img {
     width: 100%;
     height: 220px;
-    object-fit: contain;
-    background-color: #fff8f0;
+    object-fit: cover;
     display: block;
 }
 
 .tarjeta-info {
     padding: 12px;
+    text-align: center;
 }
 
-
-.carnivoro {
-    color: red;
-}
-
-.herbivoro {
-    color: green;
-}
+.carnivoro { color: red; font-weight: bold; }
+.herbivoro { color: green; font-weight: bold; }
 
 
 .carrusel {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
+    width: 85%;
+    max-width: 800px;
+    margin: 40px auto;
+    overflow: hidden; 
+    position: relative;
+    border: 10px solid white;
+    border-radius: 15px;
+    background-color: white;
 }
 
 .slides {
     display: flex;
-    width: 600%;
-    transition: transform 2.5s ease-in-out;
+    width: 600%; /* Son 6 fotos, así que 600% */
+    transition: transform 0.4s ease-in-out;
 }
 
-
 .slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 350px;
+   
+    width: calc(100% / 6); 
+    flex-shrink: 0;
+    height: 400px; /* Altura fija para que no se pierda */
 }
 
 .slide img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+}
+
+input[type="radio"] {
+    display: none;
 }
 
 #s1:checked ~ .slides { transform: translateX(0%); }
-#s2:checked ~ .slides { transform: translateX(-100%); }
-#s3:checked ~ .slides { transform: translateX(-200%); }
-#s4:checked ~ .slides { transform: translateX(-300%); }
-#s5:checked ~ .slides { transform: translateX(-400%); }
-#s6:checked ~ .slides { transform: translateX(-500%); }
+#s2:checked ~ .slides { transform: translateX(-16.6666%); }
+#s3:checked ~ .slides { transform: translateX(-33.3333%); }
+#s4:checked ~ .slides { transform: translateX(-50%); }
+#s5:checked ~ .slides { transform: translateX(-66.6666%); }
+#s6:checked ~ .slides { transform: translateX(-83.3333%); }
+
 
 .dots {
     text-align: center;
-    margin-top: 10px;
+    padding: 15px;
+    background: #f5ede0;
 }
 
 .dots label {
     display: inline-block;
-    width: 12px;
-    height: 12px;
+    width: 14px;
+    height: 14px;
     background: #c4a882;
     border-radius: 50%;
-    margin: 5px;
+    margin: 0 8px;
     cursor: pointer;
+}
+
+#s1:checked ~ .dots label:nth-child(1),
+#s2:checked ~ .dots label:nth-child(2),
+#s3:checked ~ .dots label:nth-child(3),
+#s4:checked ~ .dots label:nth-child(4),
+#s5:checked ~ .dots label:nth-child(5),
+#s6:checked ~ .dots label:nth-child(6) {
+    background: #5c3317;
 }
