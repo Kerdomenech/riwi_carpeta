@@ -21,7 +21,7 @@ h2 {
     color: #6c63ff;
 }
 
-/* GRID CARDS */
+
 .grid-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -29,7 +29,6 @@ h2 {
     padding: 20px;
 }
 
-/* CARD */
 .card {
     background: #ffffff;
     border-radius: 20px;
@@ -46,7 +45,7 @@ h2 {
     color: #7b6cff;
 }
 
-/* DEMOS */
+
 .demo {
     margin-top: 10px;
     background: #eef3ff;
@@ -64,7 +63,6 @@ h2 {
     font-weight: bold;
 }
 
-/* FLEX */
 .flex {
     display: flex;
 }
@@ -131,7 +129,7 @@ h2 {
     font-size: 30px;
 }
 
-/* GRID */
+
 .grid {
     display: grid;
 }
