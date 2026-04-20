@@ -163,7 +163,7 @@ img {
 
 .slides {
     display: flex;
-    width: 600%; /* Son 6 fotos, así que 600% */
+    width: 600%;
     transition: transform 0.4s ease-in-out;
 }
 
