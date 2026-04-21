@@ -168,7 +168,6 @@ img {
 }
 
 .slide {
-   
     width: calc(100% / 6); 
     flex-shrink: 0;
     height: 400px; /* Altura fija para que no se pierda */
