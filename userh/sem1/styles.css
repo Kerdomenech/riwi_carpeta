@@ -1,32 +1,40 @@
 
+:root {
+    --color-principal: #1a3a4a;
+    --color-secundario: #40e0d0;
+    --color-fondo: #e0f7f7;
+    --color-acento: #7fffd4;
+    --fuente-principal: Arial, sans-serif;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #e0f7f7;
-    color: #1a3a4a;
+    font-family: var(--fuente-principal);
+    background-color: var(--color-fondo);
+    color: var(--color-principal);
     margin: 0;
     padding: 0;
 }
 
 
 .header-flex {
-    background-color: #1a3a4a;
+    background-color: var(--color-principal);
     color: white;
     padding: 20px 40px;
 
-    
+
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 nav a {
-    color: #7fffd4;
+    color: var(--color-acento);
     text-decoration: none;
     margin: 0 15px;
 }
 
 nav a:hover {
-    color: #40e0d0;
+    color: var(--color-secundario);
 }
 
 
@@ -34,14 +42,14 @@ section {
     margin: 30px auto;
     padding: 20px;
     max-width: 900px;
-    background-color: #ffffff;
+    background-color: var(--color-fondo);
     border-radius: 8px;
-    border-left: 5px solid #40e0d0;
+    border-left: 5px solid var(--color-secundario);
 }
 
 
 .grid-proyectos {
-    
+
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
@@ -49,8 +57,8 @@ section {
 }
 
 .tarjeta {
-    background-color: #e0f7f7;
-    border: 2px solid #40e0d0;
+    background-color: var(--color-fondo);
+    border: 2px solid var(--color-secundario);
     border-radius: 8px;
     padding: 15px;
     text-align: center;
@@ -59,13 +67,13 @@ section {
 .tarjeta a {
     display: inline-block;
     margin-top: 10px;
-    color: #1a3a4a;
+    color: var(--color-principal);
     font-weight: bold;
     text-decoration: none;
 }
 
 .tarjeta a:hover {
-    color: #40e0d0;
+    color: var(--color-secundario);
 }
 
 
@@ -77,13 +85,13 @@ form {
 
 input {
     padding: 10px;
-    border: 1px solid #40e0d0;
+    border: 1px solid var(--color-secundario);
     border-radius: 4px;
 }
 
 button {
     padding: 10px;
-    background-color: #1a3a4a;
+    background-color: var(--color-principal);
     color: white;
     border: none;
     border-radius: 4px;
@@ -91,13 +99,13 @@ button {
 }
 
 button:hover {
-    background-color: #40e0d0;
-    color: #1a3a4a;
+    background-color: var(--color-secundario);
+    color: var(--color-principal);
 }
 
 
 .galeria-mascotas {
-    
+
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -113,9 +121,56 @@ article {
 img {
     width: 200px;
     height: 200px;
+    max-width: 100%;
     border-radius: 50%;
     object-fit: cover;
     object-position: top;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-    border: 4px solid #40e0d0;
+    border: 4px solid var(--color-secundario);
+
+}
+
+@media (max-width: 600px) {
+    .header-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .grid-proyectos {
+        grid-template-columns: 1fr;
+    }
+
+    .galeria-mascotas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    .grid-proyectos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .galeria-mascotas {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+p {
+    font-size: 1rem;
 }
