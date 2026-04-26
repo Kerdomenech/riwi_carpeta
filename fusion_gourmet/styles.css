@@ -1,0 +1,282 @@
+/* VARIABLES GLOBALES */
+:root {
+    --color-negro: #1a1a1a;
+    --color-oliva: #6b7c3f;
+    --color-oliva-oscuro: #4a5a2a;
+    --color-dorado: #d4a853;
+    --color-crema: #f5f0e8;
+    --fuente-titulo: 'Playfair Display', serif;
+    --fuente-texto: 'Lato', sans-serif;
+}
+
+/* ESTILOS GENERALES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: var(--fuente-texto);
+    background-color: var(--color-negro);
+    color: var(--color-crema);
+}
+
+h1, h2, h3 {
+    font-family: var(--fuente-titulo);
+    color: var(--color-dorado);
+}
+
+/* HEADER */
+header {
+    background-color: var(--color-oliva-oscuro);
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+
+
+.subtitulo-header {
+    font-size: 0.85rem;
+    color: var(--color-crema);
+    margin-top: 4px;
+}
+
+nav a {
+    color: var(--color-crema);
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1rem;
+}
+
+nav a:hover {
+    color: var(--color-dorado);
+}
+
+/*  SECCION PRINCIPAL  */
+#inicio {
+    background-color: var(--color-oliva);
+    padding: 100px 40px;
+    text-align: center;
+}
+
+.hero-contenido h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero-contenido p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+}
+
+.boton-principal {
+    background-color: var(--color-dorado);
+    color: var(--color-negro);
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.boton-principal:hover {
+    background-color: var(--color-crema);
+}
+.boton-principal {
+    display: inline-block; /*  el padding y margen esten bien */
+    transition: background-color 0.3s ease; /*  cambio de color */
+    }
+
+/*  SECCIONES GENERALES  */
+section {
+    padding: 60px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+section h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--color-dorado);
+    padding-bottom: 10px;
+}
+
+/*  TABLA DE HORARIOS  */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th {
+    background-color: var(--color-oliva-oscuro);
+    color: var(--color-dorado);
+    padding: 12px;
+    text-align: left;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid var(--color-oliva);
+    color: var(--color-crema);
+}
+
+tr:hover {
+    background-color: var(--color-oliva-oscuro);
+}
+
+/*  SECCION FESTIVAL  */
+.festival-contenido {
+    display: flex;
+    gap: 40px;
+}
+
+.festival-texto {
+    flex: 2;
+}
+
+.festival-patrocinadores {
+    flex: 1;
+}
+
+.festival-texto p {
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+.festival-texto h3,
+.festival-patrocinadores h3 {
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--color-oliva);
+    color: var(--color-crema);
+}
+
+ul li::before {
+    content: "— ";
+    color: var(--color-dorado);
+}
+
+/*  GALERIA  */
+.grid-galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.grid-galeria article {
+    text-align: center;
+}
+
+.grid-galeria img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid var(--color-oliva);
+}
+
+.grid-galeria img:hover {
+    border-color: var(--color-dorado);
+}
+
+.grid-galeria p {
+    margin-top: 10px;
+    color: var(--color-dorado);
+    font-size: 0.95rem;
+}
+
+/*  FOOTER  */
+footer {
+    background-color: var(--color-oliva-oscuro);
+    padding: 40px;
+    margin-top: 40px;
+}
+
+.footer-contenido {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1100px;
+    margin: 0 auto;
+    gap: 40px;
+}
+
+.footer-redes a {
+    color: var(--color-crema);
+    text-decoration: none;
+}
+
+.footer-redes a:hover {
+    color: var(--color-dorado);
+}
+
+.footer-copy {
+    text-align: center;
+    margin-top: 30px;
+    color: var(--color-oliva);
+    font-size: 0.85rem;
+}
+
+/* --- MEDIA QUERIES --- */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .hero-contenido h2 {
+        font-size: 2rem;
+    }
+
+    .festival-contenido {
+        flex-direction: column;
+    }
+
+    .grid-galeria {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-contenido {
+        flex-direction: column;
+    }
+
+    table {
+        font-size: 0.85rem;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    .grid-galeria {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
