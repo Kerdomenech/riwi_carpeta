@@ -203,6 +203,63 @@ ul li::before {
     font-size: 0.95rem;
 }
 
+/* --- CARRUSEL --- */
+.carrusel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 12px;
+    scrollbar-width: none;
+}
+
+.carrusel::-webkit-scrollbar {
+    display: none;
+}
+
+.slide {
+    min-width: 100%;
+    scroll-snap-align: start;
+    text-align: center;
+}
+
+.slide img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: none;
+}
+
+.slide p {
+    margin-top: 10px;
+    color: var(--color-dorado);
+    font-size: 1rem;
+}
+
+.carrusel-puntos {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.carrusel-puntos a {
+    width: 12px;
+    height: 12px;
+    background-color: var(--color-oliva);
+    border-radius: 50%;
+    display: inline-block;
+    border: 2px solid var(--color-dorado);
+}
+
+.carrusel-puntos a:hover {
+    background-color: var(--color-dorado);
+}
+
 /*  FOOTER  */
 footer {
     background-color: var(--color-oliva-oscuro);
@@ -234,7 +291,7 @@ footer {
     font-size: 0.85rem;
 }
 
-/* --- MEDIA QUERIES --- */
+/*  MEDIA QUERIES  */
 @media (max-width: 600px) {
     header {
         flex-direction: column;
